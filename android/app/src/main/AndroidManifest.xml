@@ -1,8 +1,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+<uses-permission android:name="android.permission.VIBRATE"/>
     <application
         android:label="list"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+        <service android:name="me.carda.awesome_notifications.notifications.services.NotificationService" android:exported="true"/>
+        <receiver android:name="me.carda.awesome_notifications.notifications.receivers.NotificationReceiver" android:exported="true"/>
+        <receiver android:name="me.carda.awesome_notifications.notifications.receivers.NotificationDismissedReceiver" android:exported="true"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"
